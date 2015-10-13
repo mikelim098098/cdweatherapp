@@ -1,0 +1,32 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: utf8
+  database: weather_development
+  pool:     5
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  template: template0
+  # others options
+
+test:
+   adapter:  postgresql
+   host:     127.0.0.1
+   encoding: utf8
+   database: weather_test
+   pool:     5
+   username: <%= ENV['PG_USERNAME'] %>
+   password: <%= ENV['PG_PASSWORD'] %>
+   template: template0
+   # others options
+
+production:
+  adapter:  postgresql
+  host:     127.0.0.1
+  encoding: utf8
+  database: weather_production
+  pool:     5
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  template: template0
+  # others options

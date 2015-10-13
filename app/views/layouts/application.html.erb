@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+</head>
+<body>
+
+  <div id="header">
+    <% if !session[:id] %>
+      <nav class="blue lighten-3">
+      <div class="nav-wrapper" >
+        <a href="/homes" class="brand-logo center">Weather</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/sessions/new">Login</a></li>
+          <li><a href="/users/new">Registration</a></li>
+          <!-- <li><a href="/sessions/<%= session[:id] %>" data&#45;method="delete">Logout</a></li> -->
+        </ul>
+      </div>
+      </nav>
+    <% else %>
+      <nav class="blue lighten-3">
+      <div class="nav-wrapper" >
+        <a href="/homes" class="brand-logo center">Weather</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/users/<%= session[:id] %>">Profile</a></li>
+          <li><a href="/sessions/<%= session[:id] %>" data-method="delete">Logout</a></li>
+        </ul>
+      </div>
+      </nav>
+    <% end %>
+  </div>
+
+<%= yield %>
+
+<div id="test">
+  <%= yield :test %>
+</div>
+
+
+</body>
+</html>

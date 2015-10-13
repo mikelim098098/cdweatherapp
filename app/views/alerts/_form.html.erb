@@ -1,0 +1,31 @@
+<%= form_for(@alert) do |f| %>
+  <% if @alert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alert.errors.count, "error") %> prohibited this alert from being saved:</h2>
+
+      <ul>
+      <% @alert.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title%><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :city_name %><br>
+    <p style="font-size:0.8em; color:#9e9e9e">Example: San Francisco, New York, Berkeley</p>
+    <%= f.text_field :city_name %>
+  </div>
+  <div class="field">
+    <%= f.label :alert_time %><br>
+    <p style="font-size:0.8em; color:#9e9e9e">All Times Are Recorded in PST</p>
+    <%= f.time_field  :alert_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
